@@ -1,3 +1,4 @@
+import com.sparta.pages.LoginPage;
 import com.sparta.pages.ProductPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,7 +11,10 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class ProductStepdefs {
 
     @Managed
-    ProductPage productPage;
+   // private LoginPage loginPage;
+    private ProductPage productPage;
+
+
 
     @Given("I am on the Product page")
     public void iAmOnTheProductPage() {

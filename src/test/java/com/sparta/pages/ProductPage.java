@@ -61,9 +61,6 @@ public class ProductPage extends PageObject {
                 .getText();
     }
 
-
-    // ===== BRAND ACTIONS =====
-
     public void clickBrandByIndex(int index) {
         brandLinks.get(index).click();
     }
@@ -81,7 +78,6 @@ public class ProductPage extends PageObject {
         return brandSectionTitle.isDisplayed();
     }
 
-    /** ✔ Method you asked for */
     public boolean hasBrands() {
         return !brandLinks.isEmpty();
     }
