@@ -5,7 +5,7 @@ Feature: Login
   I want to be able to sign in to my account
 
   @Happy
-  Scenario: Login with valid username and valid password
+  Scenario: Login with valid username and valid password then logout
     Given I am on the login page
     And I have clicked the consent button
     And I have entered the email "jheap@spartaglobal.com"
