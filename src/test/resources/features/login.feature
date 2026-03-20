@@ -12,3 +12,5 @@ Feature: Login
     And I have entered the password "secret_sauce"
     When I click the login button
     Then I should land on the home page
+    When I click the logout button
+    Then I should land on the login page
