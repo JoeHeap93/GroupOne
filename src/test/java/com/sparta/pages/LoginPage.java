@@ -15,12 +15,14 @@ public class LoginPage extends PageObject {
     private WebElementFacade loginButton;
     @FindBy(name="name")
     private WebElementFacade nameField;
-    @FindBy(name="email")
+    @FindBy(xpath = "(//input[@name='email'])[2]")
     private WebElementFacade emailSignupField;
     @FindBy(xpath = "//button[contains(.,'Signup')]")
     private WebElementFacade signupButton;
     @FindBy(className = "fc-button-label")
     private WebElementFacade consentButton;
+    @FindBy(linkText ="Logout")
+    private WebElementFacade logoutButton;
 
     public void enterEmail(String username){
         emailField.type(username);
@@ -46,5 +48,9 @@ public class LoginPage extends PageObject {
 
     public void clickSignupButton() {
         signupButton.click();
+    }
+
+    public void clickLogoutButton() {
+        logoutButton.click();
     }
 }

@@ -36,12 +36,24 @@ public class LoginStepDefs {
     }
 
     @Then("I should land on the home page")
-    public void iShouldLandOnTheHomePage() {
+    public void iShouldLandOnTheHomePage() throws InterruptedException {
+        Thread.sleep(5000);
         MatcherAssert.assertThat(loginPage.getDriver().getCurrentUrl(), Matchers.is("https://automationexercise.com/"));
     }
 
     @And("I have clicked the consent button")
     public void iHaveClickedTheConsentButton() {
         loginPage.clickConsentButton();
+    }
+
+    @When("I click the logout button")
+    public void iClickTheLogoutButton() {
+        loginPage.clickLogoutButton();
+    }
+
+    @Then("I should land on the login page")
+    public void iShouldLandOnTheLoginPage() throws InterruptedException {
+        Thread.sleep(5000);
+        MatcherAssert.assertThat(loginPage.getDriver().getCurrentUrl(), Matchers.is("https://automationexercise.com/login"));
     }
 }
