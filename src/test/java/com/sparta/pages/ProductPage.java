@@ -1,3 +1,4 @@
+
 package com.sparta.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
@@ -7,11 +8,10 @@ import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
 
-
 @DefaultUrl("https://automationexercise.com/products")
 public class ProductPage extends PageObject {
 
-     //Product cards on the products page
+    // Product cards on the products page
     @FindBy(css = ".features_items .product-image-wrapper")
     private List<WebElementFacade> productItems;
 
@@ -27,19 +27,23 @@ public class ProductPage extends PageObject {
     @FindBy(css = ".add-to-cart")
     private List<WebElementFacade> addToCartButtons;
 
+    // Brand links
     @FindBy(css = ".brands-name li a")
     private List<WebElementFacade> brandLinks;
 
+    // Brand section header
     @FindBy(css = ".left-sidebar h2")
     private WebElementFacade brandSectionTitle;
 
+
+    // ===== PRODUCT ACTIONS =====
 
     public int getNumberOfProducts() {
         return productItems.size();
     }
 
     public void searchForProduct(String productName) {
-      searchInput.type(productName);
+        searchInput.type(productName);
         searchButton.click();
     }
 
@@ -53,8 +57,12 @@ public class ProductPage extends PageObject {
 
     public String getProductNameByIndex(int index) {
         return productItems.get(index)
-                .thenFind(".productinfo p").getText();
+                .thenFind(".productinfo p")
+                .getText();
     }
+
+
+    // ===== BRAND ACTIONS =====
 
     public void clickBrandByIndex(int index) {
         brandLinks.get(index).click();
@@ -73,7 +81,8 @@ public class ProductPage extends PageObject {
         return brandSectionTitle.isDisplayed();
     }
 
+    /** ✔ Method you asked for */
+    public boolean hasBrands() {
+        return !brandLinks.isEmpty();
+    }
 }
-
-
-
