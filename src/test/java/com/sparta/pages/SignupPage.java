@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.Keys;
 
 @DefaultUrl("https://automationexercise.com/signup")
 public class SignupPage extends PageObject {
@@ -17,9 +18,9 @@ public class SignupPage extends PageObject {
     private WebElementFacade monthsDropDown;
     @FindBy(id="years")
     private WebElementFacade yearsDropDown;
-    @FindBy(id="first-name")
+    @FindBy(id="first_name")
     private WebElementFacade firstNameField;
-    @FindBy(id="last-name")
+    @FindBy(id="last_name")
     private WebElementFacade lastNameField;
     @FindBy(id="address1")
     private WebElementFacade addressField;
@@ -31,8 +32,12 @@ public class SignupPage extends PageObject {
     private WebElementFacade zipcodeField;
     @FindBy(id="mobile_number")
     private WebElementFacade mobileField;
-    @FindBy(xpath = "//button[contains(.,'Create')]")
+    @FindBy(xpath = "//button[contains(.,'Create Account')]")
     private WebElementFacade createAccountButton;
+    @FindBy(xpath = "//button[contains(.,'Continue')]")
+    private WebElementFacade continueButton;
+    @FindBy(linkText ="Delete Account")
+    private WebElementFacade deleteAccountButton;
 
     public void selectMale(){
         selectGender.click();
@@ -42,19 +47,23 @@ public class SignupPage extends PageObject {
         passwordField.type(password);
     }
 
-    public void selectDays(){
+    public void selectDays(String days){
         daysDropDown.click();
+        daysDropDown.selectByVisibleText(days);
     }
 
-    public void selectMonths(){
+    public void selectMonths(String month){
         monthsDropDown.click();
+        monthsDropDown.selectByVisibleText(month);
     }
 
-    public void selectYears(){
+    public void selectYears(String year){
         yearsDropDown.click();
+        yearsDropDown.selectByVisibleText(year);
     }
 
     public void enterFirstName(String firstname){
+        firstNameField.click();
         firstNameField.type(firstname);
     }
 
@@ -85,4 +94,14 @@ public class SignupPage extends PageObject {
     public void clickCreateAccountButton() {
         createAccountButton.click();
     }
+
+    public void clickContinueButton() {
+        continueButton.click();
+    }
+
+    public void clickDeleteAccountButton() {
+        deleteAccountButton.click();
+    }
+
+
 }
