@@ -1,7 +1,7 @@
 Feature: Login
 
   In order to be able to buy items
-  As a registered user of the Automation Centre website
+  As a registered user of the Automation Exercise website
   I want to be able to sign in to my account
 
   @Happy
